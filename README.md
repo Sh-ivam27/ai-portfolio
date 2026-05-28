@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shivam Madan — AI Portfolio Copilot
 
-## Getting Started
+A smart, client-facing career portfolio powered by AI. Anyone visiting can ask questions about my work, projects, skills, and experience — and receive accurate, grounded answers via an AI Career Copilot.
 
-First, run the development server:
+Built as part of the CAARYA AI Track Work Order (4-Day Sprint).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Live Demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+https://ai-portfolio-amber-two.vercel.app
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS + Custom CSS Variables |
+| AI | Anthropic Claude API (claude-sonnet-4-6) |
+| Data Layer | Structured TypeScript data file |
+| Deployment | Vercel |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture
 
-## Deploy on Vercel
+src/
+├── app/
+│   ├── api/chat/route.ts      <- Claude API backend
+│   ├── globals.css             <- Design system
+│   ├── layout.tsx              <- Root layout
+│   └── page.tsx                <- Main page
+├── components/
+│   ├── ui/Navbar.tsx           <- Sticky navbar
+│   └── sections/
+│       ├── HeroSection.tsx
+│       ├── SkillsSection.tsx
+│       ├── ProjectsSection.tsx
+│       ├── ExperienceSection.tsx
+│       ├── EducationSection.tsx
+│       ├── ChatSection.tsx     <- AI Q&A interface
+│       └── ContactSection.tsx
+└── data/
+    └── portfolio.ts            <- Single source of truth
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## AI Design
+
+1. All personal data is stored in src/data/portfolio.ts
+2. On each chat request, a system prompt is dynamically built from this data
+3. Claude is instructed to only answer from the provided data — no hallucinations
+4. Last 10 messages passed for multi-turn conversation context
+5. Graceful fallback for questions outside the data scope
+
+---
+
+## Setup and Running Locally
+
+### Prerequisites
+- Node.js 18+
+- Anthropic API key from console.anthropic.com
+
+### Steps
+
+1. Clone the repo
+   git clone https://github.com/Sh-ivam27/ai-portfolio.git
+   cd ai-portfolio
+
+2. Install dependencies
+   npm install
+
+3. Set up environment variables
+   Create a .env.local file and add:
+   ANTHROPIC_API_KEY=your_key_here
+
+4. Run dev server
+   npm run dev
+
+5. Open http://localhost:3000
+
+---
+
+## Sample Q&A Pairs
+
+| Question | Answer |
+|---|---|
+| What is ReFind? | Full-stack college thrift store built with React + Node.js |
+| What college do you attend? | BITS Pilani, Hyderabad Campus — 2nd year CS |
+| What programming languages do you know? | Python, C, C++, Java, JavaScript, TypeScript |
+| What clubs are you part of? | DoPE, Embryo, SWMC, AUGSD |
+| How can I contact you? | shivammadan2277@gmail.com, GitHub, LinkedIn |
+| What is your tech stack? | React + Node.js for full-stack, Python/C++ for systems |
+| Tell me about your mentoring role | Mentor at SWMC, helps junior students transition into BITS |
+| What problem does ReFind solve? | Replaces chaotic WhatsApp groups for campus buy/sell |
+
+---
+
+## Deployment
+
+1. Install Vercel CLI
+   npm i -g vercel
+
+2. Deploy
+   vercel --prod
+
+3. Add ANTHROPIC_API_KEY in Vercel dashboard under Environment Variables
+
+---
+
+## Future Plans
+
+- Add more projects as they are built
+- Streaming AI responses for better UX
+- Resume PDF download
+- Dark mode toggle
+- Analytics on most asked questions
+
+---
+
+## Challenges
+
+- Prompt engineering to prevent hallucinations
+- Graceful edge case handling for unknown questions
+- Managing conversation context window efficiently
+
+---
+
+Built by Shivam Madan · BITS Pilani Hyderabad Campus · 2026
