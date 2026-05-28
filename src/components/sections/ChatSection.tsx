@@ -83,7 +83,7 @@ export default function ChatSection() {
           {messages.map((msg, i) => (
             <div key={i} style={{ display: "flex", justifyContent: msg.role === "user" ? "flex-end" : "flex-start" }}>
               <div className={msg.role === "user" ? "chat-user" : "chat-ai"} style={{ maxWidth: "72%", padding: "10px 16px", fontFamily: "var(--font-body)", fontSize: "0.875rem", lineHeight: 1.7, fontWeight: 300 }}>
-                {msg.content}
+                {msg.content.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1')}
               </div>
             </div>
           ))}
