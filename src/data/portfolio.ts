@@ -91,6 +91,13 @@ export const portfolioData = {
         description:
           "Assisted with course registration processes, guiding students through academic procedures and ensuring a smooth enrolment experience each semester.",
       },
+      {
+        role: "Participant",
+        organisation: "Smart India Hackathon (SIH)",
+        period: "2024",
+        description:
+          "Competed in India's largest hackathon — a national-level 36-hour problem-solving competition — contributing technical solutions to real-world government and industry challenges.",
+      },
     ],
   
     sampleQA: [
