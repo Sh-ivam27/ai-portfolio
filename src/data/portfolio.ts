@@ -21,7 +21,7 @@ export const portfolioData = {
           degree: "B.E. Computer Science & Engineering",
           period: "2024 – Present",
           detail: "Completed my 2nd year, having studied core CS subjects including data structures, algorithms, object-oriented programming, systems design, and DBMS.",
-          grade: "CGPA: 8.27 CGPA",
+          grade: "CGPA: 8.27",
         },
         {
           institution: "Delhi Public School Whitefield, Bengaluru",
