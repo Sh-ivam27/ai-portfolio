@@ -32,7 +32,7 @@ export default function EducationSection() {
             </p>
             {"grade" in edu && edu.grade && (
               <div style={{ marginTop: "0.75rem", fontFamily: "var(--font-body)", fontSize: "0.8rem", fontWeight: 500, color: i === 0 ? "var(--gold-light)" : "var(--gold)" }}>
-                Score: {edu.grade}
+                {edu.grade}
               </div>
             )}
           </div>
