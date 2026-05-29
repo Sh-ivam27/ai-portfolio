@@ -16,25 +16,27 @@ export const portfolioData = {
     },
   
     education: [
-      {
-        institution: "BITS Pilani, Hyderabad Campus",
-        degree: "B.E. Computer Science & Engineering",
-        period: "2024 – Present",
-        detail:
-          "Currently in 2nd year at one of India's top engineering institutes. Engaged in core CS coursework including data structures, algorithms, object-oriented programming, and systems design.",
-      },
-      {
-        institution: "Delhi Public School Whitefield, Bengaluru",
-        degree: "Class XII – CBSE",
-        period: "2022 – 2024",
-        detail: "Completed senior secondary education with a focus on Science (PCM + Computer Science).",
-      },
-      {
-        institution: "VIBGYOR HIGH SCHOOL Marathahalli, Bengaluru",
-        degree: "Class X – ICSE",
-        period: "Until 2022",
-        detail: "Completed foundational schooling with strong academic performance across all subjects.",
-      },
+        {
+          institution: "BITS Pilani, Hyderabad Campus",
+          degree: "B.E. Computer Science & Engineering",
+          period: "2024 – Present",
+          detail: "Completed my 2nd year, having studied core CS subjects including data structures, algorithms, object-oriented programming, systems design, and DBMS.",
+          grade: "8.27 CGPA",
+        },
+        {
+          institution: "Delhi Public School Whitefield, Bengaluru",
+          degree: "Class XII – CBSE",
+          period: "2022 – 2024",
+          detail: "Completed senior secondary education with a focus on Science (PCM + Computer Science).",
+          grade: "95.6%",
+        },
+        {
+          institution: "VIBGYOR HIGH SCHOOL Marathahalli, Bengaluru",
+          degree: "Class X – ICSE",
+          period: "Until 2022",
+          detail: "Completed foundational schooling with strong academic performance across all subjects.",
+          grade: "98.17%",
+        },
     ],
   
     skills: {

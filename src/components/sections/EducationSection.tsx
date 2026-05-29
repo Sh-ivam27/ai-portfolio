@@ -30,6 +30,11 @@ export default function EducationSection() {
             <p style={{ fontFamily: "var(--font-body)", fontSize: "0.8rem", color: i === 0 ? "rgba(247,244,238,0.6)" : "var(--ink-soft)", lineHeight: 1.7 }}>
               {edu.detail}
             </p>
+            {"grade" in edu && edu.grade && (
+              <div style={{ marginTop: "0.75rem", fontFamily: "var(--font-body)", fontSize: "0.8rem", fontWeight: 500, color: i === 0 ? "var(--gold-light)" : "var(--gold)" }}>
+                Score: {edu.grade}
+              </div>
+            )}
           </div>
         ))}
       </div>
