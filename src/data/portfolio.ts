@@ -41,7 +41,7 @@ export const portfolioData = {
       languages: ["Python", "C", "C++", "Java", "JavaScript", "TypeScript"],
       frameworks: ["React", "Node.js", "Next.js"],
       tools: ["Git", "GitHub", "Figma", "VS Code"],
-      areas: ["Frontend Development", "Full-Stack Development", "UI/UX Design", "REST APIs"],
+      areas: ["Frontend Development", "Full-Stack Development", "UI/UX Design", "REST APIs", "AI/ML"],
     },
   
     projects: [
