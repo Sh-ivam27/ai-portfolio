@@ -2,7 +2,7 @@ export const portfolioData = {
     personal: {
       name: "Shivam Madan",
       tagline: "Computer Science Student · Builder · Problem Solver",
-      bio: `I'm a 2nd-year Computer Science student at BITS Pilani, Hyderabad Campus, interested in building thoughtful digital products that solve real problems. My interests lie in full-stack development, AI/ML and Data Mining — with a focus on creating experiences that are both intuitive and functional.`,
+      bio: `I'm a 2nd-year Computer Science student at BITS Pilani, Hyderabad Campus, interested in building thoughtful digital products that solve real problems. My interests lie in full-stack development, AI/ML and Data Mining. I focus on creating experiences that are both intuitive and functional.`,
       location: "BITS Pilani, Hyderabad Campus",
       email: {
         formal: "f20240137@hyderabad.bits.pilani.ac.in",
