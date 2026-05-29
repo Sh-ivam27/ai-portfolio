@@ -82,7 +82,7 @@ export const portfolioData = {
         organisation: "SWMC – Student Welfare and Mentorship Committee, BPHC",
         period: "2024 – Present",
         description:
-          "Mentoring junior students through their transition into BITS Pilani — offering academic guidance, campus navigation support, and personal mentorship.",
+          "Mentoring junior students through their transition into BITS Pilani, offering academic guidance, campus navigation support, and personal mentorship.",
       },
       {
         role: "Registration Guide",
@@ -96,7 +96,7 @@ export const portfolioData = {
         organisation: "Smart India Hackathon (SIH)",
         period: "2024",
         description:
-          "Competed in India's largest hackathon — a national-level 36-hour problem-solving competition — contributing technical solutions to real-world government and industry challenges.",
+          "Participated in the Smart India Hackathon (SIH), India's largest national-level hackathon, working on real-world government and industry problem statements.",
       },
     ],
   
