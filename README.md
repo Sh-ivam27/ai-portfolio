@@ -27,26 +27,31 @@ https://ai-portfolio-amber-two.vercel.app
 
 ## Architecture
 
+## Architecture
+
+```text
 src/
 ├── app/
-│   ├── api/chat/route.ts      <- Claude API backend
-│   ├── globals.css             <- Design system
-│   ├── layout.tsx              <- Root layout
-│   └── page.tsx                <- Main page
+│   ├── api/chat/route.ts      ← Claude API backend
+│   ├── globals.css            ← Design system
+│   ├── layout.tsx             ← Root layout
+│   └── page.tsx               ← Main page
+│
 ├── components/
-│   ├── ui/Navbar.tsx           <- Sticky navbar
+│   ├── ui/Navbar.tsx          ← Sticky navbar
 │   └── sections/
 │       ├── HeroSection.tsx
+│       ├── SummarySection.tsx
 │       ├── SkillsSection.tsx
 │       ├── ProjectsSection.tsx
 │       ├── ExperienceSection.tsx
 │       ├── EducationSection.tsx
-│       ├── ChatSection.tsx     <- AI Q&A interface
+│       ├── ChatSection.tsx    ← AI Q&A interface
 │       └── ContactSection.tsx
-└── data/
-    └── portfolio.ts            <- Single source of truth
-
----
+│
+├── data/
+│   └── portfolio.ts           ← Single source of truth
+```
 
 ## AI Design
 
