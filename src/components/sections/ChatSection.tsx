@@ -23,11 +23,43 @@ export default function ChatSection() {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [listening, setListening] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const recognitionRef = useRef<SpeechRecognition | null>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
+
+  function startListening() {
+    const SpeechRecognition = window.SpeechRecognition || (window as unknown as { webkitSpeechRecognition: typeof window.SpeechRecognition }).webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("Voice input is not supported in your browser. Try Chrome!");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => setListening(true);
+    recognition.onend = () => setListening(false);
+    recognition.onerror = () => setListening(false);
+
+    recognition.onresult = (event: SpeechRecognitionEvent) => {
+      const transcript = event.results[0][0].transcript;
+      setInput(transcript);
+    };
+
+    recognitionRef.current = recognition;
+    recognition.start();
+  }
+
+  function stopListening() {
+    recognitionRef.current?.stop();
+    setListening(false);
+  }
 
   async function send(text?: string) {
     const query = text ?? input.trim();
@@ -63,7 +95,7 @@ export default function ChatSection() {
           Ask me anything
         </h2>
         <p style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "var(--ink-muted)", marginTop: "0.75rem", maxWidth: "480px" }}>
-          This AI is grounded in Shivam's real data — projects, skills, experience, and background. No hallucinations.
+          This AI is grounded in Shivam's real data. Type or use the mic to ask anything.
         </p>
       </div>
 
@@ -74,7 +106,7 @@ export default function ChatSection() {
             <div style={{ fontFamily: "var(--font-body)", fontSize: "0.8rem", fontWeight: 500, color: "var(--ink)" }}>Shivam's AI Copilot</div>
             <div style={{ fontFamily: "var(--font-body)", fontSize: "0.65rem", color: "var(--ink-muted)", display: "flex", alignItems: "center", gap: "4px" }}>
               <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4caf50", display: "inline-block" }} />
-              Online · Powered by Claude
+              Online · Powered by Claude · Voice enabled
             </div>
           </div>
         </div>
@@ -115,11 +147,18 @@ export default function ChatSection() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && send()}
-            placeholder="Ask about Shivam's experience, projects, skills..."
-            style={{ flex: 1, border: "1px solid var(--border)", borderRadius: "3px", padding: "10px 14px", fontFamily: "var(--font-body)", fontSize: "0.875rem", color: "var(--ink)", background: "var(--cream)", outline: "none", fontWeight: 300 }}
+            placeholder={listening ? "Listening..." : "Ask about Shivam's experience, projects, skills..."}
+            style={{ flex: 1, border: "1px solid var(--border)", borderRadius: "3px", padding: "10px 14px", fontFamily: "var(--font-body)", fontSize: "0.875rem", color: "var(--ink)", background: listening ? "var(--gold-faint)" : "var(--cream)", outline: "none", fontWeight: 300, transition: "all 0.2s" }}
             onFocus={(e) => (e.target as HTMLInputElement).style.borderColor = "var(--gold)"}
             onBlur={(e) => (e.target as HTMLInputElement).style.borderColor = "var(--border)"}
           />
+          <button
+            onClick={listening ? stopListening : startListening}
+            style={{ padding: "10px 14px", background: listening ? "var(--gold)" : "var(--cream)", color: listening ? "white" : "var(--ink-muted)", border: "1px solid var(--border)", borderRadius: "3px", cursor: "pointer", fontSize: "1.1rem", transition: "all 0.2s" }}
+            title={listening ? "Stop listening" : "Speak your question"}
+          >
+            🎤
+          </button>
           <button onClick={() => send()} disabled={loading || !input.trim()} style={{ padding: "10px 20px", background: loading || !input.trim() ? "var(--border)" : "var(--ink)", color: loading || !input.trim() ? "var(--ink-faint)" : "var(--cream)", border: "none", borderRadius: "3px", fontFamily: "var(--font-body)", fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase", cursor: loading || !input.trim() ? "not-allowed" : "pointer" }}>
             Send
           </button>
