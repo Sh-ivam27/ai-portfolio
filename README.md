@@ -1,6 +1,6 @@
 # Shivam Madan — AI Portfolio Copilot
 
-A smart, client-facing career portfolio powered by AI. Anyone visiting can ask questions about my work, projects, skills, and experience — and receive accurate, grounded answers via an AI Career Copilot.
+A smart, client-facing career portfolio powered by AI. Anyone visiting can ask questions about my work, projects, skills, and experience — and receive accurate, grounded answers via an AI Career Copilot. Supports both text and voice input.
 
 Built as part of the CAARYA AI Track Work Order (4-Day Sprint).
 
@@ -20,12 +20,11 @@ https://ai-portfolio-amber-two.vercel.app
 | Language | TypeScript |
 | Styling | Tailwind CSS + Custom CSS Variables |
 | AI | Anthropic Claude API (claude-sonnet-4-6) |
+| Voice Input | Web Speech API (built-in browser API) |
 | Data Layer | Structured TypeScript data file |
 | Deployment | Vercel |
 
 ---
-
-## Architecture
 
 ## Architecture
 
@@ -46,12 +45,15 @@ src/
 │       ├── ProjectsSection.tsx
 │       ├── ExperienceSection.tsx
 │       ├── EducationSection.tsx
-│       ├── ChatSection.tsx    ← AI Q&A interface
+│       ├── ChatSection.tsx    ← AI Q&A interface with voice input
 │       └── ContactSection.tsx
 │
 ├── data/
 │   └── portfolio.ts           ← Single source of truth
 ```
+
+
+---
 
 ## AI Design
 
@@ -60,6 +62,17 @@ src/
 3. Claude is instructed to only answer from the provided data — no hallucinations
 4. Last 10 messages passed for multi-turn conversation context
 5. Graceful fallback for questions outside the data scope
+
+---
+
+## Voice Input Feature
+
+The AI Copilot supports voice interaction via the Web Speech API — no extra packages required.
+
+- Click the mic button to start speaking
+- Speech is transcribed into the input field automatically
+- Hit Send or press Enter to submit
+- Works best on Chrome
 
 ---
 
