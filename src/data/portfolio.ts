@@ -62,6 +62,34 @@ export const portfolioData = {
         status: "Completed",
         github: null,
         live: null,
+
+      },
+      {
+        name: "InteLect",
+        tagline: "RAG-based AI Learning Assistant for Video Lectures",
+        description:
+          "An AI-powered learning platform that transforms video lectures into interactive learning experiences through timestamp-grounded Q&A and intelligent quiz generation.",
+      
+        problem:
+          "Students struggle to extract structured understanding from long video lectures and often rely on passive watching without effective recall or engagement.",
+      
+        solution:
+          "Built a Retrieval-Augmented Generation (RAG) pipeline over timestamped YouTube transcripts enabling grounded Q&A with exact video moment citations, along with AI-generated quizzes focused on comprehension and feedback.",
+      
+        tech: [
+          "Next.js",
+          "TypeScript",
+          "FastAPI",
+          "LangChain",
+          "ChromaDB",
+          "Claude API",
+          "AssemblyAI"
+        ],
+      
+        type: "Full-Stack AI / RAG Web App",
+        status: "Completed",
+        github: "https://github.com/yourusername/intelect",
+        live: null,
       },
     ],
   
